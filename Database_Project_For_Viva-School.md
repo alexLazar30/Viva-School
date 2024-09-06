@@ -64,7 +64,6 @@ The tables are connected in the following way:
 
  After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
-  **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
   **- update children SET last_name='Mihai' WHERE id=1;**<br>
   **- update children set gender='M' where id=1;**<br>
   **- update children set gender='M' where id in( 3, 4, 6, 7, 10);**<br>
@@ -103,7 +102,7 @@ In order to simulate various scenarios that might happen in real life I created 
 **- OPTIONAL: cross join**<br>
 **- select child_id, firstname, last_name, age, date_of_birth, gender, math, physics, english, art, neuroscience_principles, physical_education from children cross join classbook where children.id=classbook.child_id order by children.id;**<br>
 
-**- functii agregate**<br>
+**- Aggregate functions**<br>
 
 **- MIN()**
 **- select \*\ from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);**<br>
@@ -129,7 +128,7 @@ In order to simulate various scenarios that might happen in real life I created 
 **- having**<br>
 **- select current_child_id, sum(total_absences) as absences from child_situation group by current_child_id having sum(total_absences)>20;**<br>
 
-**- OPTIONAL DAR RECOMANDAT: Subqueries - nu au fost in scopul cursului. Puteti sa consultati tutorialul [asta](https://www.techonthenet.com/mysql/subqueries.php) si daca nu intelegeti ceva contactati fie trainerul, fie coordonatorul de grupa**<br>
+**Subqueries**<br>
 **- select \*\ from child_situation where total_absences=( select MAX(total_absences) from child_situation );**<br>
 **- select \*\ from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);**<br>
 </ol>
