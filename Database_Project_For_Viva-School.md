@@ -131,7 +131,7 @@ In order to simulate various scenarios that might happen in real life I created 
 21. `select * from child_situation where total_absences=( select MAX(total_absences) from child_situation );`
 22. `select * from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);`
 
-3.  ### Conclusions
+### Conclusions
 
 Following my project, I learned how to establish a database, create tables within the database, and populate these tables with various types of information via data definition language (DDL) commands. At the same time, I learned to create links between certain tables by using foreign keys. The Viva School project is an example of how students can be saved on a server. I began using the data manipulation language (DML) and data query language (DQL) when the tables had been created and the relationships between them built.
 
