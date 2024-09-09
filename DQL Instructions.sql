@@ -76,7 +76,7 @@ inner join child_situation on children.id=child_situation.current_child_id;
 
 select firstname, last_name, total_absences from children left join child_situation on children.id=child_situation.current_child_id;
 
-# 24. On the line below we will display the general situation of each child, both in terms of grades and the number of absences
+# 24. On the line below, we will display the general situation of each child, both in terms of grades and the number of absences
 
 select child_id, math, physics, english, art, neuroscience_principles, physical_education, total_absences 
 from child_situation right join classbook on child_situation.id=classbook.child_id order by child_situation.id;
