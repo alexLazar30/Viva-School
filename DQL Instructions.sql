@@ -1,7 +1,7 @@
--- 1. On the line below we wil select all the data from the 'children' table
+# 1. On the line below we wil select all the data from the 'children' table
  select * from children;
  
--- 2. On the line below we will select firstname, last_name and age from 'children' table
+# 2. On the line below we will select firstname, last_name and age from 'children' table
 select firstname, last_name, age from children;
 
 # 3. On the line below we will select all the children with age of 10.
