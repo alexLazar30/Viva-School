@@ -76,7 +76,7 @@ insert into children_bio_details( address, hobby) values
 
 TRUNCATE table children_bio_details;
 
-# On the lines below table 'children_biography' will be dropped
+# On the lines below table 'children_biography' will be created in order to be dropped
 
 create table children_biography(
 			id INT PRIMARY KEY AUTO_INCREMENT,
