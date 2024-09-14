@@ -98,7 +98,7 @@ DELETE from classbook WHERE id=12;
 update children set gender='M' where id=1; 
 
 # 9. On this line we will update multiple Records based on multiple id's using IN operator  
-update children set gender='M' where id in(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+update children set gender='M' where id in( 3, 4, 6, 7, 10);
 
 
 
