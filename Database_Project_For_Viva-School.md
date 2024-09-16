@@ -83,61 +83,85 @@ After the testing process, I deleted the data that was no longer relevant in ord
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
 ##### where
-2. `select * from children where age=10;`
+2.  On the line below we will select all the children with age of 10.
+- `select * from children where age=10;`
 
 ##### AND
-3. `select last_name, date_of_birth from children where date_of_birth like '2012%' and gender='F';`
+3.  On the line below we will select all the girls name from the class whose year of birth is '2012' from the table 'children'
+- `select last_name, date_of_birth from children where date_of_birth like '2012%' and gender='F';`
 
 ##### OR
-4. `select last_name, age from children where age=10 or age=13;`
+4. On the line below we will select all the children last_name with age of 10 and 13 from the table 'children'
+- `select last_name, age from children where age=10 or age=13;`
 
 ##### NOT
-5. `select  firstname, last_name, age from children where not age=10 and gender='M';`
+5. On the line below we will select all the children who are not 10 years old and are boys
+- `select  firstname, last_name, age from children where not age=10 and gender='M';`
 
 ##### like
-6. `select firstname, last_name from children where firstname like'I%';`
+6. On the line below we will select all the full names based on the first name that starts with 'I'
+- `select firstname, last_name from children where firstname like'I%';`
 
 ##### inner join
-7. `select current_child_id, firstname, last_name, number_of_allowed_absences, total_absences from children inner join child_situation on children.id=child_situation.current_child_id;`
+7. On the line below we will get the fullname of the child and the total abscences using Inner Join statement between 'children' and 'child_situation' tables
+- `select current_child_id, firstname, last_name, number_of_allowed_absences, total_absences from children inner join child_situation on children.id=child_situation.current_child_id;`
 
 ##### left join
-8. `select firstname, last_name, total_absences from children left join child_situation on children.id=child_situation.current_child_id;`
+8. On the line below we will display the names of the students and the absences using the left join instruction
+- `select firstname, last_name, total_absences from children left join child_situation on children.id=child_situation.current_child_id;`
 
 ##### right join
-9. `select child_id, math, physics, english, art, neuroscience_principles, physical_education, total_absences from child_situation right join classbook on child_situation.id=classbook.child_id order by child_situation.id;`
+9. On the line below we will display the general situation of each child, both in terms of grades and the number of absences using the right join instruction
+- `select child_id, math, physics, english, art, neuroscience_principles, physical_education, total_absences from child_situation right join classbook on child_situation.id=classbook.child_id order by child_situation.id;`
 
 ##### cross join
-10. `select child_id, firstname, last_name, age, date_of_birth, gender, math, physics, english, art, neuroscience_principles, physical_education from children cross join classbook where children.id=classbook.child_id order by children.id;`
+10. On the line below, we will display the general situation of the children together with the grades in the subjects using the cross join
+- `select child_id, firstname, last_name, age, date_of_birth, gender, math, physics, english, art, neuroscience_principles, physical_education from children cross join classbook where children.id=classbook.child_id order by children.id;`
 
 #### Aggregate functions
 
 ##### MIN()
-11. `select * from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);`
+11. On the line below we will calculate the optional subject with the fewest enrolled students
+- `select * from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);`
 
 ##### MAX()
-12. `select * from child_situation where total_absences=( select MAX(total_absences) from child_situation );`
+12. On the line below we will calculate the child with the highest number of absences from the child_situation table
+- `select * from child_situation where total_absences=( select MAX(total_absences) from child_situation );`
 
 ##### COUNT()
-13. `select COUNT(age) as children_with_thirteen_years_old from children where age=13;`
-14. `select count(gender) as no_of_girls from children where gender='F';`
+13. On the line below we will calculate the number of the children with the age of 13 years old
+- `select COUNT(age) as children_with_thirteen_years_old from children where age=13;`
+  
+14. On the line below we will calculate the number of girls from the school from the 'children' table
+- `select count(gender) as no_of_girls from children where gender='F';`
 
 ##### SUM()
-15. `select SUM(enrolled) as total_enrolled from mandatory_disciplines;`
-16. `select SUM(enrolled) as total_enrolled from optional_disciplines;`
+15. On the line below we will calculate the total enrolled from the mandatory disciplines from the 'mandatory_disciplines' table
+- `select SUM(enrolled) as total_enrolled from mandatory_disciplines;`
+
+16. On the line below we will calculate the total enrolled from the optional disciplines from the 'optional_disciplines' table
+- `select SUM(enrolled) as total_enrolled from optional_disciplines;`
 
 ##### AVG()
-17. `select AVG(total_absences) as average_absences from child_situation;`
+17. On the line below we will calculate the average value for the total absences 
+- `select AVG(total_absences) as average_absences from child_situation;`
 
 ##### group by
-18. `select current_child_id, sum(total_absences) as absences from child_situation group by current_child_id having sum(total_absences)>20;`
-19. `select COUNT(id) as no_of_childs, age from children group by age;`
+18. On the line below we will get the childs with the absences higher than 20
+- `select current_child_id, sum(total_absences) as absences from child_situation group by current_child_id having sum(total_absences)>20;`
+  
+19. On the line below we will get how many children are 9 years old, 10 years old and so on
+- `select COUNT(id) as no_of_childs, age from children group by age;`
 
 ##### having
 20. `select current_child_id, sum(total_absences) as absences from child_situation group by current_child_id having sum(total_absences)>20;`
 
 ##### Subqueries
-21. `select * from child_situation where total_absences=( select MAX(total_absences) from child_situation );`
-22. `select * from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);`
+21. On the line below we will calculate the child with the higher number of absences from the 'child_situation' table by using an aggregate function in a subquery 
+- `select * from child_situation where total_absences=( select MAX(total_absences) from child_situation );`
+
+22. On the line below we will calculate the school curriculum with the lowest number of enrolled students from the 'optional_disciplines' table by using an aggregate function in a subquery  
+- `select * from optional_disciplines where enrolled=( select MIN(enrolled) from optional_disciplines);`
 
 ### Conclusions
 
