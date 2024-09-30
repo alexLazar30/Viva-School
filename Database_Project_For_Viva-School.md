@@ -13,6 +13,7 @@ The project contains a school database structure. The goal of this database is t
 1. ### Database Schema
 You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
 [ERR Diagram.mwb](https://github.com/alexLazar30/Viva-School/blob/main/ERR%20Diagram.mwb)
+
 The tables are connected in the following way:
 
 - **classbook**  is connected with **children** through a **constraint type** relationship which was implemented through **chidlren.id** as a primary key and **classbook.child_id** as a foreign key
